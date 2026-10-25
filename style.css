@@ -284,108 +284,302 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Responsive design */
-@media screen and (max-width: 768px) {
-    .box {
-        width: 46%;
-    }
+/* ===== Responsive Footer Fix ===== */
 
-    .shop-section {
-        justify-content: space-evenly;
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+.foot-panel2 {
+    height: auto;
+    min-height: 300px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 25px;
+    padding: 30px 5%;
+}
+
+.foot-panel2 ul {
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+    list-style: none;
+}
+
+.foot-panel2 ul p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    overflow-wrap: anywhere;
+}
+
+.foot-panel2 ul a {
+    display: block;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 10px;
+    color: #dddddd;
+    overflow-wrap: anywhere;
+}
+
+.foot-panel3 {
+    width: 100%;
+}
+
+.foot-panel4 {
+    height: auto;
+    min-height: 90px;
+    padding: 18px 12px;
+    line-height: 1.6;
+}
+
+.pages {
+    padding-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 16px;
+}
+
+.copyright {
+    padding: 10px 0 0;
+    overflow-wrap: anywhere;
+}
+
+/* Tablet */
+@media screen and (max-width: 768px) {
+    .foot-panel2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px 24px;
+        padding: 25px 6%;
     }
 }
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+    .foot-panel2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px 16px;
+        padding: 25px 16px;
+    }
+
+    .foot-panel2 ul p {
+        font-size: 1rem;
+    }
+
+    .foot-panel2 ul a {
+        font-size: 0.85rem;
+    }
+
+    .foot-panel3 {
+        height: 70px;
+    }
+
+    .foot-panel4 {
+        padding: 18px 10px;
+        font-size: 0.75rem;
+    }
+
+    .pages {
+        gap: 10px 12px;
+    }
+}
+
+/* ===== Mobile Product Cards Fix ===== */
 
 @media screen and (max-width: 480px) {
+    .shop-section {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        padding: 12px;
+        justify-content: initial;
+    }
+
     .box {
-        width: 92%;
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        min-height: 280px;
+        margin: 0;
+        padding: 12px 10px;
+        overflow: hidden;
+    }
+
+    .box-content {
+        margin: 0;
+    }
+
+    .box-content h2 {
+        font-size: 18px;
+        line-height: 1.3;
+        min-height: 46px;
+        overflow-wrap: anywhere;
+    }
+
+    .box-img {
+        width: 100%;
+        height: 180px;
+        margin: 8px 0;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .box-content p {
+        margin-top: 8px;
+        font-size: 14px;
     }
 }
 
-/* Mobile Navbar Fix */
+/* ===== ShopVibe Mobile Navbar Fix ===== */
+
 @media screen and (max-width: 768px) {
     .navbar {
         height: auto;
         min-height: 60px;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 8px;
-        gap: 8px;
+        padding: 10px;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 10px;
+        align-items: center;
     }
 
-    .brand-logo {
-        flex-shrink: 0;
+    .nav-logo {
+        width: 75px;
+        height: 45px;
+    }
+
+    .nav-logo .brand-logo {
+        width: 75px;
+        height: 45px;
+    }
+
+    .nav-address {
+        display: none;
     }
 
     .nav-search {
-        order: 10;
+        grid-column: 1 / -1;
+        grid-row: 2;
+        order: initial;
         width: 100%;
-        max-width: 100%;
+        height: 40px;
         min-width: 0;
     }
 
     .search-input {
         min-width: 0;
+        flex: 1;
+        font-size: 14px;
+    }
+
+    .search-select {
+        flex-shrink: 0;
+        width: 48px;
+    }
+
+    .search-icon {
+        flex-shrink: 0;
+        width: 42px;
+    }
+
+    .nav-signin {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+        min-width: 0;
+    }
+
+    .nav-signin p,
+    .nav-return p {
+        line-height: 1.3;
+    }
+
+    .nav-signin span,
+    .nav-return span {
+        font-size: 11px;
+    }
+
+    .nav-second {
+        font-size: 11px;
+    }
+
+    .nav-return {
+        display: none;
+    }
+
+    .nav-cart {
+        grid-column: 3;
+        grid-row: 1;
+        white-space: nowrap;
+        font-size: 12px;
+    }
+
+    .nav-cart i {
+        font-size: 23px;
     }
 
     .panel {
         height: auto;
         min-height: 40px;
+        padding: 10px;
+        display: flex;
         flex-wrap: wrap;
-        padding: 8px;
+        justify-content: flex-start;
         gap: 10px;
+    }
+
+    .panel-all {
+        flex-shrink: 0;
     }
 
     .panel-ops {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
-        gap: 8px;
-    }
-}
-
-/* Mobile Hero Banner Fix */
-@media screen and (max-width: 480px) {
-    .hero-section {
-        height: 250px;
-        background-size: 100% 100%;
-        background-position: center;
-    }
-
-    .hero-msg {
-        width: 94%;
-        height: auto;
-        margin-bottom: 10px;
-        padding: 8px;
-        text-align: center;
-    }
-
-    .hero-msg p {
+        gap: 10px 14px;
         font-size: 12px;
-        line-height: 1.5;
+    }
+
+    .panel-ops p {
+        margin-left: 0;
+    }
+
+    .panel-deals {
+        font-size: 12px;
     }
 }
 
+/* ===== Improve Mobile Product Cards ===== */
+
 @media screen and (max-width: 480px) {
-    .hero-section {
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-
-    .shop-section {
-        padding: 5px;
-    }
-
     .box {
-        width: 92%;
+        min-height: 0;
         height: auto;
-        margin: 10px 0;
+        padding: 12px 10px;
+    }
+
+    .box-content h2 {
+        min-height: 0;
+        margin-bottom: 10px;
+        font-size: 17px;
     }
 
     .box-img {
-        height: 220px;
+        height: 150px;
+        margin: 8px 0;
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
+
+    .box-content p {
+        margin-top: 8px;
+        font-size: 13px;
+    }
+}
 }
